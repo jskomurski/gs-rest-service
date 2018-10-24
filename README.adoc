@@ -1,4 +1,4 @@
-# Readme
+# skomurski rest api
 
 ### Instructions detailing how to run the application on a users laptop
 
