@@ -1,0 +1,26 @@
+# Readme
+
+### Instructions detailing how to run the application on a users laptop
+
+To download the source and run locally, please choose one of the options below.
+Please fork the repository. Otherwise, clone.
+
+''git clone https://
+
+To download a complete package, download the binary build.
+
+
+
+### Describe two different methods to deploy the API and describe the pros and cons of each approach
+Modify the following to change deploying as a WAR or JAR
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- ... -->
+	<packaging>jar</packaging>
+	<!-- ... -->
+</project>
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
+
