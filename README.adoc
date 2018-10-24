@@ -5,7 +5,7 @@
 To download the source and run locally, please choose one of the options below.
 Please fork the repository. Otherwise, clone.
 
-''git clone https://
+git clone https://github.com/jskomurski/gs-rest-service.git
 
 To download a complete package, download the binary build.
 
