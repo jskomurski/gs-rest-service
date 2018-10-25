@@ -5,13 +5,15 @@
 To download the source and run locally, please choose one of the options below.
 Please fork the repository. Otherwise, clone.
 
+----
 git clone https://github.com/jskomurski/gs-rest-service.git
+----
 
 To download a complete package, download the binary build.
 
 
 
-### How to deploy
+== How to deploy
 The application may be deployed as a JAR or WAR
 
 https://spring.io/guides/gs/convert-jar-to-war/
@@ -28,3 +30,55 @@ Modify the following to change deploying as a WAR or JAR
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
 
+
+== Data Model
+
+The data model that is used for requests is as follows:
+
+[source,json]
+----
+{resourceType : Person, id : long, name : string, age : integer, locale : string}
+----
+
+Example:
+
+[source,json]
+----
+{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+----
+
+== Run the service
+
+After the service is deployed, you can now add endpoint through the endpoint:
+
+`/skomurski/data`
+----
+curl -X PUT -H "Content-Type: application/json" --data 
+'{"resourceType":"Person", "name": "Joe", "age" : 22, "locale" : "US"}' 
+localhost:8080/skomurski/data
+----
+
+
+
+{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+
+
+
+
+http://localhost:8080/skomurski/data/{id}
+
+[source,json]
+----
+{resourceType : Person, id : string, name : string, age : integer, locale : string}
+----
+
+Provide a `name` query string parameter with http://localhost:8080/greeting?name=User. Notice how the value of the `content` attribute changes from "Hello, World!" to "Hello User!":
+
+[source,json]
+----
+{"id":2,"content":"Hello, User!"}
+----
+
+This change demonstrates that the `@RequestParam` arrangement in `GreetingController` is working as expected. The `name` parameter has been given a default value of "World", but can always be explicitly overridden through the query string.
+
+Notice also how the `id` attribute has changed from `1` to `2`. This proves that you are working against the same `GreetingController` instance across multiple requests, and that its `counter` field is being incremented on each call as expected.
