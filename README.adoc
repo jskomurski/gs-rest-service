@@ -58,38 +58,34 @@ Example:
 
 == Service Endpoints
 
-`PUT`
+=== PUT
+
 `/skomurski/data`
 ----
 curl -X PUT -H "Content-Type: application/json" --data 
 '{"resourceType":"Person", "name": "Joe", "age" : 22, "locale" : "US"}' 
 localhost:8080/skomurski/data
 ----
-
 response:
 ----
 {"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
 ----
 
-
-`GET`
+=== GET
 `/skomurski/data/{id}`
-----
+```
 curl -X GET -H "Content-Type: application/json" localhost:8080/skomurski/data/1
-----
-
+```
 response:
 ----
 {"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
 ----
 
-
-`DELETE`
+=== DELETE
 `/skomurski/data/{id}`
 ----
 curl -X GET -H "Content-Type: application/json" localhost:8080/skomurski/data/1
 ----
-
 response:
 ----
 Deleted data: Data[resource='Person',id=1, name='Joe', age='22', locale='US']
