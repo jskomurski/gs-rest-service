@@ -1,17 +1,14 @@
 # skomurski rest api
 
-### Instructions detailing how to run the application on a users laptop
+== Instructions to run locally
 
 To download the source and run locally, please choose one of the options below.
-Please fork the repository. Otherwise, clone.
 
 ----
 git clone https://github.com/jskomurski/gs-rest-service.git
 ----
 
 To download a complete package, download the binary build.
-
-
 
 == How to deploy
 The application may be deployed as a JAR or WAR
@@ -79,23 +76,13 @@ response:
 ----
 
 
-
-
-
-http://localhost:8080/skomurski/data/{id}
-
-[source,json]
+`DELETE`
+`/skomurski/data/{id}`
 ----
-{resourceType : Person, id : string, name : string, age : integer, locale : string}
+curl -X GET -H "Content-Type: application/json" localhost:8080/skomurski/data/1
 ----
 
-Provide a `name` query string parameter with http://localhost:8080/greeting?name=User. Notice how the value of the `content` attribute changes from "Hello, World!" to "Hello User!":
-
-[source,json]
+response:
 ----
-{"id":2,"content":"Hello, User!"}
+{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
 ----
-
-This change demonstrates that the `@RequestParam` arrangement in `GreetingController` is working as expected. The `name` parameter has been given a default value of "World", but can always be explicitly overridden through the query string.
-
-Notice also how the `id` attribute has changed from `1` to `2`. This proves that you are working against the same `GreetingController` instance across multiple requests, and that its `counter` field is being incremented on each call as expected.
