@@ -1,5 +1,7 @@
 # skomurski rest api
 
+Project forked from gs-rest-service sample from springboot
+
 == Instructions to run locally
 
 To download the source and run locally, please choose one of the options below.
@@ -10,8 +12,17 @@ git clone https://github.com/jskomurski/gs-rest-service.git
 
 To download a complete package, download the binary build.
 
-== How to deploy
+== How to deploy and run
+
 The application may be deployed as a JAR or WAR
+
+Run as JAR:
+
+----
+java -jar gs-rest-service-0.1.0.jar
+----
+
+Run as WAR:
 
 https://spring.io/guides/gs/convert-jar-to-war/
 
@@ -27,25 +38,21 @@ Modify the following to change deploying as a WAR or JAR
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
 
-== Run the service
-
-After the service is deployed, you can now add endpoint through the endpoint:
-
 
 == Data Model
 
 The data model that is used for requests is as follows:
 
-[source,json]
+[source]
 ----
-{resourceType : Person, id : long, name : string, age : integer, locale : string}
+{"resourceType" : Person, "id" : long, "name" : string, "age" : integer, "locale" : string}
 ----
 
 Example:
 
 [source,json]
 ----
-{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+{"resourceType" : "Person", "id": 1, "name": "Joe", "age" : 22, "locale" : "US"}
 ----
 
 == Service Endpoints
@@ -84,5 +91,10 @@ curl -X GET -H "Content-Type: application/json" localhost:8080/skomurski/data/1
 
 response:
 ----
-{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+Deleted data: Data[resource='Person',id=1, name='Joe', age='22', locale='US']
 ----
+
+
+== See also
+
+https://github.com/spring-guides/gs-rest-service
