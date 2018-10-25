@@ -30,6 +30,10 @@ Modify the following to change deploying as a WAR or JAR
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
 
+== Run the service
+
+After the service is deployed, you can now add endpoint through the endpoint:
+
 
 == Data Model
 
@@ -47,10 +51,9 @@ Example:
 {"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
 ----
 
-== Run the service
+== Service Endpoints
 
-After the service is deployed, you can now add endpoint through the endpoint:
-
+`PUT`
 `/skomurski/data`
 ----
 curl -X PUT -H "Content-Type: application/json" --data 
@@ -58,9 +61,23 @@ curl -X PUT -H "Content-Type: application/json" --data
 localhost:8080/skomurski/data
 ----
 
-
-
+response:
+----
 {"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+----
+
+
+`GET`
+`/skomurski/data/{id}`
+----
+curl -X GET -H "Content-Type: application/json" localhost:8080/skomurski/data/1
+----
+
+response:
+----
+{"resourceType" : "Person", id: 1, "name": "Joe", "age" : 22, "locale" : "US"}
+----
+
 
 
 
